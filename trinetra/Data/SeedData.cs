@@ -7,7 +7,7 @@ namespace trinetra.Data
     {
         public static void Initialize(AppDbContext db)
         {
-            db.Database.EnsureCreated();
+                    db.Database.EnsureCreated();
 
             if (!db.Users.Any())
             {
@@ -49,3 +49,4 @@ namespace trinetra.Data
         }
     }
 }
+    

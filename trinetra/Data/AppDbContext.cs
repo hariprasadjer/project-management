@@ -18,6 +18,32 @@ namespace trinetra.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TaskItem>().Property(t => t.TaskItemId).HasColumnName("TaskId");
+
+            // Configure TaskItem relationships with ON DELETE NO ACTION
+            modelBuilder.Entity<TaskItem>()
+                .HasOne(t => t.Client)
+                .WithMany()
+                .HasForeignKey(t => t.ClientId)
+                .OnDelete(DeleteBehavior.NoAction);
+            
+            modelBuilder.Entity<TaskItem>()
+                .HasOne(t => t.Project)
+                .WithMany()
+                .HasForeignKey(t => t.ProjectId)
+                .OnDelete(DeleteBehavior.NoAction);
+            
+            modelBuilder.Entity<TaskItem>()
+                .HasOne(t => t.Module)
+                .WithMany()
+                .HasForeignKey(t => t.ModuleId)
+                .OnDelete(DeleteBehavior.NoAction);
+            
+            modelBuilder.Entity<TaskItem>()
+                .HasOne(t => t.SubModule)
+                .WithMany()
+                .HasForeignKey(t => t.SubModuleId)
+                .OnDelete(DeleteBehavior.NoAction);
+            
             base.OnModelCreating(modelBuilder);
         }
     }
