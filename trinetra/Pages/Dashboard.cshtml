@@ -1,0 +1,24 @@
+@page
+@model trinetra.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<h2>Dashboard</h2>
+<partial name="Shared/_FilterBar" />
+<div class="row mt-3">
+    <partial name="Shared/_KpiCard" model="Model.KpiTotal" />
+    <partial name="Shared/_KpiCard" model="Model.KpiPending" />
+    <partial name="Shared/_KpiCard" model="Model.KpiOverdue" />
+    <partial name="Shared/_KpiCard" model="Model.KpiEffort" />
+</div>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr><th>Title</th><th>Due</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+@foreach (var t in Model.Tasks)
+{
+    <partial name="Shared/_TaskRow" model="t" />
+}
+    </tbody>
+</table>

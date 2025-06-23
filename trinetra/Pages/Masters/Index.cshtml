@@ -1,0 +1,18 @@
+@page "/Masters/{type}"
+@model trinetra.Pages.Masters.IndexModel
+@{
+    ViewData["Title"] = $"{Model.Type} Master";
+}
+<h2>@ViewData["Title"]</h2>
+<form method="post" class="mb-3">
+    <div class="input-group">
+        <input asp-for="NewItem" class="form-control" />
+        <button class="btn btn-primary">Add</button>
+    </div>
+</form>
+<table class="table">
+@foreach(var item in Model.Items)
+{
+    <tr><td>@item</td></tr>
+}
+</table>
