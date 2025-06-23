@@ -1,0 +1,22 @@
+<form class="row g-2 mb-3" method="get">
+    <div class="col">
+        <select class="form-select" name="clientId" asp-items="@(new SelectList(ViewBag.Clients,"ClientId","Name"))" onchange="this.form.submit()">
+            <option value="">Client</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-select" name="projectId" asp-items="@(new SelectList(ViewBag.Projects,"ProjectId","Name"))" onchange="this.form.submit()">
+            <option value="">Project</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-select" name="moduleId" asp-items="@(new SelectList(ViewBag.Modules,"ModuleId","Name"))" onchange="this.form.submit()">
+            <option value="">Module</option>
+        </select>
+    </div>
+    <div class="col">
+        <select class="form-select" name="subModuleId" asp-items="@(new SelectList(ViewBag.SubModules,"SubModuleId","Name"))" onchange="this.form.submit()">
+            <option value="">SubModule</option>
+        </select>
+    </div>
+</form>

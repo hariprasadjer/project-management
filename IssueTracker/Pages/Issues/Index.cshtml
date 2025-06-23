@@ -1,0 +1,16 @@
+@page
+@model Issues_IndexModel
+@{
+    ViewData["Title"] = "Issues";
+}
+<partial name="../Shared/_FilterBar" />
+<a asp-page="Create" class="btn btn-primary mb-2">New Issue</a>
+<table class="table table-bordered">
+    <thead><tr><th>No</th><th>Title</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var i in Model.Issues)
+    {
+        <partial name="../Shared/_IssueRow" model="i" />
+    }
+    </tbody>
+</table>

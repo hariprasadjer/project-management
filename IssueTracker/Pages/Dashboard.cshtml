@@ -1,0 +1,21 @@
+@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<partial name="Shared/_FilterBar" />
+<div class="row mb-3">
+    <partial name="Shared/_KpiCard" model="Model.KpiTotal" />
+    <partial name="Shared/_KpiCard" model="Model.KpiPending" />
+    <partial name="Shared/_KpiCard" model="Model.KpiOverdue" />
+    <partial name="Shared/_KpiCard" model="Model.KpiEffort" />
+</div>
+<table class="table table-striped">
+    <thead><tr><th>No</th><th>Title</th><th>Status</th></tr></thead>
+    <tbody>
+    @foreach (var i in Model.Issues)
+    {
+        <partial name="Shared/_IssueRow" model="i" />
+    }
+    </tbody>
+</table>

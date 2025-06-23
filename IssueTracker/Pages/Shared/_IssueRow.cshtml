@@ -1,0 +1,10 @@
+@model IssueTracker.Data.IssueTask
+<tr>
+    <td>@Model.IssueNo</td>
+    <td>@Model.IssueTitle</td>
+    <td>@Model.Status?.Name</td>
+    <td>
+        <a asp-page="Edit" asp-route-id="@Model.IssueTaskId" class="btn btn-sm btn-secondary">Edit</a>
+        <a asp-page="Delete" asp-route-id="@Model.IssueTaskId" class="btn btn-sm btn-danger">Del</a>
+    </td>
+</tr>
