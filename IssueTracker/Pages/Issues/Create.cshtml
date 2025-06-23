@@ -1,0 +1,57 @@
+@page
+@model Issues_CreateModel
+@{
+    ViewData["Title"] = "New Issue";
+}
+<h2>Create Issue</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Issue.IssueNo" class="form-label"></label>
+        <input asp-for="Issue.IssueNo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.ModuleId" class="form-label"></label>
+        <select asp-for="Issue.ModuleId" class="form-select" asp-items="@(new SelectList(Model.Modules,"ModuleId","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.SubModuleId" class="form-label"></label>
+        <select asp-for="Issue.SubModuleId" class="form-select" asp-items="@(new SelectList(Model.SubModules,"SubModuleId","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.FormPageName" class="form-label"></label>
+        <input asp-for="Issue.FormPageName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.IssueTitle" class="form-label"></label>
+        <input asp-for="Issue.IssueTitle" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.Description" class="form-label"></label>
+        <textarea asp-for="Issue.Description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.StatusId" class="form-label"></label>
+        <select asp-for="Issue.StatusId" class="form-select" asp-items="@(new SelectList(Model.Statuses,"StatusId","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.TypeId" class="form-label"></label>
+        <select asp-for="Issue.TypeId" class="form-select" asp-items="@(new SelectList(Model.Types,"TypeId","Name"))"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.EffortHr" class="form-label"></label>
+        <input asp-for="Issue.EffortHr" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.RemarkInternal" class="form-label"></label>
+        <input asp-for="Issue.RemarkInternal" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.RemarkClient" class="form-label"></label>
+        <input asp-for="Issue.RemarkClient" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Issue.AssignedToId" class="form-label"></label>
+        <select asp-for="Issue.AssignedToId" class="form-select" asp-items="@(new SelectList(Model.Users,"AppUserId","Name"))"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

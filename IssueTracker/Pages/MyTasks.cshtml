@@ -1,0 +1,31 @@
+@page "/MyTasks/{date?}"
+@model MyTasksModel
+@{
+    ViewData["Title"] = "My Tasks";
+}
+<h2>My Tasks for @Model.Date.ToShortDateString()</h2>
+<table class="table">
+@foreach (var t in Model.Tasks)
+{
+    <tr>
+        <td>@t.IssueTitle</td>
+        <td>
+            <select class="form-select status" data-id="@t.IssueTaskId">
+            @foreach (var s in Model.Statuses)
+            {
+                <option value="@s.StatusId" selected="@(s.StatusId==t.StatusId)">@s.Name</option>
+            }
+            </select>
+        </td>
+    </tr>
+}
+</table>
+@section Scripts{
+<script>
+$(function(){
+    $('.status').change(function(){
+        $.post('/MyTasks/UpdateStatus',{id:$(this).data('id'),statusId:$(this).val()});
+    });
+});
+</script>
+}
