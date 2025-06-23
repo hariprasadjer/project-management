@@ -1,0 +1,6 @@
+@model trinetra.Data.TaskItem
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.DueDate.ToShortDateString()</td>
+    <td>@Model.Status?.Name</td>
+</tr>

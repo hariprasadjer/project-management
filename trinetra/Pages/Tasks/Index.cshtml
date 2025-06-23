@@ -1,0 +1,28 @@
+@page
+@model trinetra.Pages.Tasks.IndexModel
+@{
+    ViewData["Title"] = "Tasks";
+}
+<h2>Tasks</h2>
+<a asp-page="Create" class="btn btn-primary mb-2">New Task</a>
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Title</th><th>Due</th><th>Status</th><th></th></tr>
+    </thead>
+    <tbody>
+@foreach(var t in Model.Tasks)
+{
+    <tr>
+        <td>@t.Title</td>
+        <td>@t.DueDate.ToShortDateString()</td>
+        <td>@t.Status?.Name</td>
+        <td>
+            <a asp-page="Edit" asp-route-id="@t.TaskItemId" class="btn btn-sm btn-secondary">Edit</a>
+            <form method="post" asp-page-handler="Delete" asp-route-id="@t.TaskItemId" class="d-inline">
+                <button class="btn btn-sm btn-danger">Del</button>
+            </form>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

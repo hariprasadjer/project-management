@@ -1,0 +1,21 @@
+<form class="row g-2" id="filterForm">
+    <div class="col">
+        <select class="form-select" id="client"></select>
+    </div>
+    <div class="col">
+        <select class="form-select" id="project"></select>
+    </div>
+    <div class="col">
+        <select class="form-select" id="module"></select>
+    </div>
+    <div class="col">
+        <select class="form-select" id="submodule"></select>
+    </div>
+</form>
+<script>
+$(function(){
+    $('#filterForm select').change(function(){
+        // TODO: ajax load filtered tasks
+    });
+});
+</script>
